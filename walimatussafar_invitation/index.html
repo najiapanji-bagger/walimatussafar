@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Walimatussafar Ridwan Nasution & Leni Herlina</title>
+  <title>Walimatussafar Ridwan & Leni Herlina</title>
   <meta name="theme-color" content="#9f7a12" />
   <style>
     :root{
@@ -25,261 +25,70 @@
         linear-gradient(180deg,#f8f5ef 0%, #f4efe5 100%);
       min-height:100vh;
     }
-    .wrap{
-      width:min(100%, 1040px);
-      margin:0 auto;
-      padding:22px;
-    }
-    .card{
-      background:#fff;
-      border:1px solid #efe4ca;
-      border-radius:34px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-    }
-    .hero{
-      display:grid;
-      grid-template-columns:1.08fr .92fr;
-      min-height:100vh;
-    }
-    .left{
-      padding:42px 40px 34px;
-      background:linear-gradient(180deg, #fffdfa 0%, #fff9ee 100%);
-      position:relative;
-    }
-    .left:before{
-      content:"";
-      position:absolute;
-      left:-60px; bottom:-90px;
-      width:240px; height:240px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(226,198,122,.28), transparent 66%);
-      pointer-events:none;
-    }
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 16px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background:#fff;
-      color:var(--gold-dark);
-      font-size:13px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      font-weight:700;
-    }
-    .orn{
-      color:var(--gold);
-      font-size:30px;
-      line-height:1;
-      margin-bottom:12px;
-    }
-    h1{
-      margin:18px 0 10px;
-      font-size:clamp(34px, 4.5vw, 58px);
-      line-height:1.08;
-      letter-spacing:-.03em;
-      font-family:Georgia,"Times New Roman",serif;
-    }
-    .sub{
-      font-size:18px;
-      line-height:1.9;
-      color:var(--muted);
-      margin:0;
-      max-width:560px;
-    }
-    .section{
-      margin-top:28px;
-      padding:22px;
-      border:1px solid #f0e4c6;
-      border-radius:24px;
-      background:#fffdfa;
-    }
-    .title-small{
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:.18em;
-      color:var(--muted);
-      font-weight:700;
-      margin-bottom:14px;
-    }
-    .detail{
-      display:flex;
-      gap:14px;
-      align-items:flex-start;
-      margin:16px 0;
-    }
-    .icon{
-      width:42px;height:42px;border-radius:14px;
-      background:#fff;border:1px solid var(--line);
-      display:flex;align-items:center;justify-content:center;font-size:20px;flex:none;
-    }
-    .detail h3{
-      margin:0 0 4px;
-      font-size:16px;
-    }
-    .detail p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.8;
-    }
-    .map-btn{
-      margin-top:14px;
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:12px 18px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:#fff;
-      color:var(--gold-dark);
-      text-decoration:none;
-      font-weight:700;
-    }
-    .closing{
-      margin-top:24px;
-      color:var(--muted);
-      line-height:1.95;
-      font-size:16px;
-    }
+    .wrap{width:min(100%,1040px);margin:0 auto;padding:22px}
+    .card{background:#fff;border:1px solid #efe4ca;border-radius:34px;overflow:hidden;box-shadow:var(--shadow)}
+    .hero{display:grid;grid-template-columns:1.08fr .92fr;min-height:100vh}
+    .left{padding:42px 40px 34px;background:linear-gradient(180deg,#fffdfa 0%,#fff9ee 100%);position:relative}
+    .left:before{content:"";position:absolute;left:-60px;bottom:-90px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(226,198,122,.28),transparent 66%);pointer-events:none}
+    .badge{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--gold-dark);font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+    .orn{color:var(--gold);font-size:30px;line-height:1;margin-bottom:12px}
+    h1{margin:18px 0 10px;font-size:clamp(34px,4.5vw,58px);line-height:1.08;letter-spacing:-.03em;font-family:Georgia,"Times New Roman",serif}
+    .sub{font-size:18px;line-height:1.9;color:var(--muted);margin:0;max-width:560px}
+    .guest-block{margin-top:28px;padding:20px 22px;border:1px solid #f0e4c6;border-radius:24px;background:#fff}
+    .guest-label{font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:var(--muted);font-weight:700}
+    .guest-name{margin-top:10px;font-size:28px;line-height:1.3;font-weight:700;color:var(--gold-dark);word-break:break-word}
+    .section{margin-top:22px;padding:22px;border:1px solid #f0e4c6;border-radius:24px;background:#fffdfa}
+    .title-small{font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:var(--muted);font-weight:700;margin-bottom:14px}
+    .detail{display:flex;gap:14px;align-items:flex-start;margin:16px 0}
+    .icon{width:42px;height:42px;border-radius:14px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:20px;flex:none}
+    .detail h3{margin:0 0 4px;font-size:16px}
+    .detail p{margin:0;color:var(--muted);line-height:1.8}
+    .map-btn{margin-top:14px;display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--gold-dark);text-decoration:none;font-weight:700}
+    .closing{margin-top:24px;color:var(--muted);line-height:1.95;font-size:16px}
     .closing strong{color:var(--text)}
-    .hosts{
-      margin-top:26px;
-      padding-top:20px;
-      border-top:1px dashed var(--line);
-      color:var(--muted);
-      font-size:15px;
-    }
-    .hosts strong{
-      display:block;
-      color:var(--text);
-      font-size:22px;
-      margin-top:8px;
-      line-height:1.35;
-    }
+    .hosts{margin-top:26px;padding-top:20px;border-top:1px dashed var(--line);color:var(--muted);font-size:15px}
+    .hosts strong{display:block;color:var(--text);font-size:22px;margin-top:8px;line-height:1.35}
     .right{
       position:relative;
       background:
         radial-gradient(circle at top, rgba(255,231,169,.22), transparent 32%),
         linear-gradient(180deg, #2d261f 0%, #47351a 60%, #6d5120 100%);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:36px;
-      overflow:hidden;
+      display:flex;align-items:center;justify-content:center;padding:36px;overflow:hidden
     }
-    .stars{
-      position:absolute;inset:0;opacity:.35;
-      background-image:radial-gradient(#fff 1px, transparent 1px);
-      background-size:32px 32px;
-    }
-    .moon{
-      position:absolute;top:54px;right:56px;
-      width:92px;height:92px;border-radius:50%;
-      box-shadow:-22px 0 0 0 #f8df96;
-      opacity:.95;
-    }
-    .scene{
-      position:relative;
-      width:100%;
-      max-width:360px;
-      text-align:center;
-      color:#fff8e6;
-    }
-    .kaaba{
-      width:170px;height:170px;margin:0 auto 18px;border-radius:12px;
-      background:linear-gradient(180deg,#0d0d0f,#1c1c1f);
-      position:relative;
-      box-shadow:0 20px 40px rgba(0,0,0,.35);
-    }
-    .kaaba:before{
-      content:"";
-      position:absolute;left:0;right:0;top:34px;height:12px;
-      background:linear-gradient(90deg, #9b7400, #eccf6e, #9b7400);
-    }
-    .kaaba:after{
-      content:"";
-      position:absolute;right:-22px;top:24px;bottom:24px;width:22px;
-      background:linear-gradient(180deg,#2d2d31,#111114);
-      border-radius:0 10px 10px 0;
-    }
-    .couple{
-      margin:10px auto 18px;
-      width:180px;height:72px;position:relative;
-    }
-    .person{
-      position:absolute;bottom:0;width:58px;height:72px;
-    }
-    .person .head{
-      width:18px;height:18px;border-radius:50%;background:#f0c89e;position:absolute;left:20px;top:0;
-    }
+    .stars{position:absolute;inset:0;opacity:.35;background-image:radial-gradient(#fff 1px, transparent 1px);background-size:32px 32px}
+    .moon{position:absolute;top:54px;right:56px;width:92px;height:92px;border-radius:50%;box-shadow:-22px 0 0 0 #f8df96;opacity:.95}
+    .scene{position:relative;width:100%;max-width:360px;text-align:center;color:#fff8e6}
+    .kaaba{width:170px;height:170px;margin:0 auto 18px;border-radius:12px;background:linear-gradient(180deg,#0d0d0f,#1c1c1f);position:relative;box-shadow:0 20px 40px rgba(0,0,0,.35)}
+    .kaaba:before{content:"";position:absolute;left:0;right:0;top:34px;height:12px;background:linear-gradient(90deg,#9b7400,#eccf6e,#9b7400)}
+    .kaaba:after{content:"";position:absolute;right:-22px;top:24px;bottom:24px;width:22px;background:linear-gradient(180deg,#2d2d31,#111114);border-radius:0 10px 10px 0}
+    .couple{margin:10px auto 18px;width:180px;height:72px;position:relative}
+    .person{position:absolute;bottom:0;width:58px;height:72px}
+    .person .head{width:18px;height:18px;border-radius:50%;background:#f0c89e;position:absolute;left:20px;top:0}
     .person.man{left:22px}
-    .person.man .body{
-      position:absolute;left:12px;top:16px;width:34px;height:50px;border-radius:18px 18px 10px 10px;background:#f5f1e6;
-      border:1px solid rgba(255,255,255,.15);
-    }
-    .person.man .cap{
-      position:absolute;left:17px;top:-3px;width:24px;height:9px;border-radius:8px 8px 3px 3px;background:#f6f4ef;
-    }
+    .person.man .body{position:absolute;left:12px;top:16px;width:34px;height:50px;border-radius:18px 18px 10px 10px;background:#f5f1e6;border:1px solid rgba(255,255,255,.15)}
+    .person.man .cap{position:absolute;left:17px;top:-3px;width:24px;height:9px;border-radius:8px 8px 3px 3px;background:#f6f4ef}
     .person.woman{right:22px}
-    .person.woman .veil{
-      position:absolute;left:8px;top:10px;width:42px;height:54px;border-radius:24px 24px 10px 10px;background:#e8dcc0;
-    }
-    .person.woman .face{
-      position:absolute;left:20px;top:6px;width:18px;height:18px;border-radius:50%;background:#f0c89e;
-    }
-    .person.woman .dress{
-      position:absolute;left:14px;top:28px;width:30px;height:38px;border-radius:18px 18px 10px 10px;background:#f5f1e6;
-    }
-    .scene h2{
-      margin:6px 0 8px;
-      font-family:Georgia,"Times New Roman",serif;
-      font-size:44px;
-      line-height:1.12;
-      color:#fff5d8;
-    }
-    .scene p{
-      margin:0 auto;
-      color:#f0e4c6;
-      line-height:1.8;
-      max-width:320px;
-      font-size:16px;
-    }
+    .person.woman .veil{position:absolute;left:8px;top:10px;width:42px;height:54px;border-radius:24px 24px 10px 10px;background:#e8dcc0}
+    .person.woman .face{position:absolute;left:20px;top:6px;width:18px;height:18px;border-radius:50%;background:#f0c89e}
+    .person.woman .dress{position:absolute;left:14px;top:28px;width:30px;height:38px;border-radius:18px 18px 10px 10px;background:#f5f1e6}
+    .scene h2{margin:6px 0 8px;font-family:Georgia,"Times New Roman",serif;font-size:44px;line-height:1.12;color:#fff5d8}
+    .scene p{margin:0 auto;color:#f0e4c6;line-height:1.8;max-width:320px;font-size:16px}
     .music-btn{
-      position:absolute;
-      top:18px; right:18px;
-      border:1px solid rgba(255,240,205,.28);
-      background:rgba(255,255,255,.09);
-      color:#fff8e4;
-      border-radius:999px;
-      padding:10px 14px;
-      font-weight:700;
-      cursor:pointer;
-      font-size:13px;
-      backdrop-filter: blur(8px);
+      position:absolute;top:18px;right:18px;border:1px solid rgba(255,240,205,.28);
+      background:rgba(255,255,255,.09);color:#fff8e4;border-radius:999px;padding:10px 14px;
+      font-weight:700;cursor:pointer;font-size:13px;backdrop-filter:blur(8px)
     }
-    @media (max-width:860px){
-      .hero{grid-template-columns:1fr}
-      .right{min-height:420px}
-    }
+    @media (max-width:860px){.hero{grid-template-columns:1fr}.right{min-height:420px}}
     @media (max-width:520px){
-      .wrap{padding:14px}
-      .card{border-radius:24px}
-      .left{padding:28px 18px 24px}
-      h1{font-size:36px}
-      .sub{font-size:16px;line-height:1.8}
-      .section{padding:18px}
-      .right{padding:20px;min-height:360px}
-      .kaaba{width:136px;height:136px}
-      .scene h2{font-size:31px}
-      .music-btn{top:14px;right:14px}
+      .wrap{padding:14px}.card{border-radius:24px}.left{padding:28px 18px 24px}
+      h1{font-size:36px}.sub{font-size:16px;line-height:1.8}.section,.guest-block{padding:18px}
+      .guest-name{font-size:24px}
+      .right{padding:20px;min-height:360px}.kaaba{width:136px;height:136px}.scene h2{font-size:31px}.music-btn{top:14px;right:14px}
     }
   </style>
 </head>
 <body>
-  <audio id="bgm" src="soundtrack-undangan.mp3" loop></audio>
+  <audio id="bgm" src="soundtrack-undangan.mp3" autoplay loop playsinline preload="auto"></audio>
 
   <div class="wrap">
     <section class="card">
@@ -294,6 +103,11 @@
             Dengan penuh rasa syukur, kami mengundang Bapak/Ibu/Saudara/Saudari
             untuk hadir pada acara walimatussafar kami.
           </p>
+
+          <div class="guest-block">
+            <div class="guest-label">Kepada Yth.</div>
+            <div id="guestName" class="guest-name">Bapak/Ibu/Saudara/Saudari</div>
+          </div>
 
           <div class="section">
             <div class="title-small">Detail Acara</div>
@@ -342,12 +156,12 @@
 
           <div class="hosts">
             Yang mengundang
-            <strong>Ridwan Nasution &amp; Leni Herlina</strong>
+            <strong>Ridwan &amp; Leni Herlina</strong>
           </div>
         </div>
 
         <div class="right">
-          <button id="musicBtn" class="music-btn" onclick="toggleMusic()">Putar Musik</button>
+          <button id="musicBtn" class="music-btn" onclick="toggleMusic()">Pause Musik</button>
           <div class="stars"></div>
           <div class="moon"></div>
 
@@ -379,40 +193,54 @@
   <script>
     const audio = document.getElementById('bgm');
     const btn = document.getElementById('musicBtn');
-    let hasTriedAutoPlay = false;
+    const guestEl = document.getElementById('guestName');
+
+    function updateGuestName() {
+      const params = new URLSearchParams(window.location.search);
+      const guest = params.get('to');
+      if (guest && guest.trim()) {
+        guestEl.textContent = guest.trim();
+      }
+    }
 
     function updateMusicButton() {
       btn.textContent = audio.paused ? 'Putar Musik' : 'Pause Musik';
     }
 
-    function tryPlayMusic() {
-      if (hasTriedAutoPlay && !audio.paused) return;
-      audio.play().then(() => {
+    function aggressiveAutoplay() {
+      const promise = audio.play();
+      if (promise && typeof promise.then === 'function') {
+        promise.then(updateMusicButton).catch(updateMusicButton);
+      } else {
         updateMusicButton();
-        document.removeEventListener('click', tryPlayMusic);
-        document.removeEventListener('touchstart', tryPlayMusic);
-      }).catch(() => {
-        updateMusicButton();
-      });
-      hasTriedAutoPlay = true;
+      }
     }
 
     function toggleMusic() {
       if (audio.paused) {
-        audio.play().then(updateMusicButton).catch(updateMusicButton);
+        aggressiveAutoplay();
       } else {
         audio.pause();
         updateMusicButton();
       }
     }
 
-    window.addEventListener('load', () => {
-      tryPlayMusic();
+    document.addEventListener('DOMContentLoaded', () => {
+      updateGuestName();
+      aggressiveAutoplay();
+      [250, 700, 1400, 2200].forEach((t) => {
+        setTimeout(() => {
+          if (audio.paused) aggressiveAutoplay();
+        }, t);
+      });
       updateMusicButton();
     });
 
-    document.addEventListener('click', tryPlayMusic, { once: true });
-    document.addEventListener('touchstart', tryPlayMusic, { once: true });
+    ['click','touchstart','pointerdown'].forEach((evt) => {
+      window.addEventListener(evt, () => {
+        if (audio.paused) aggressiveAutoplay();
+      }, { once: true, passive: true });
+    });
   </script>
 </body>
 </html>

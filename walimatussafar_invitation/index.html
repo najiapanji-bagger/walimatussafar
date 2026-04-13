@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Walimatussafar</title>
+<style>
+body{margin:0;font-family:Arial, sans-serif;background:#f8f6f2;color:#333;text-align:center}
+.container{padding:40px}
+button{padding:12px 20px;border:none;background:#a67c00;color:white;border-radius:20px;cursor:pointer}
+.card{max-width:600px;margin:auto;background:white;padding:30px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.1)}
+</style>
+</head>
+<body>
+
+<div id="page1" class="container">
+  <div class="card">
+    <h2>Assalamu’alaikum Warahmatullahi Wabarakatuh</h2>
+    <p>Kami mengundang Saudara/Saudari</p>
+    <button onclick="openInvite()">Klik Undangan</button>
+  </div>
+</div>
+
+<div id="page2" class="container" style="display:none;">
+  <audio id="music" src="soundtrack-undangan.mp3" loop></audio>
+
+  <div class="card">
+    <h2>Walimatussafar</h2>
+    <p>Minggu, 19 April 2026</p>
+    <p>Pukul ........ WIB</p>
+    <p>Jl. Raya Cibiuk No. 14,<br>Sukaratu, Majasari, Pandeglang</p>
+    <p><a href="https://maps.app.goo.gl/yuYn1nT4DyR4StzN7" target="_blank">📍 Buka Maps</a></p>
+    <p>Yang mengundang:<br><b>Ridwan & Leni Herlina</b></p>
+  </div>
+</div>
+
+<script>
+function openInvite(){
+  document.getElementById('page1').style.display='none';
+  document.getElementById('page2').style.display='block';
+  var audio = document.getElementById('music');
+  audio.play().catch(()=>{});
+}
+</script>
+
+</body>
+</html>

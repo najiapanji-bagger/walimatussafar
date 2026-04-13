@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Walimatussafar Ridwan Nasution & Leni Herlina</title>
+  <title>Walimatussafar Ridwan & Leni Herlina</title>
   <meta name="theme-color" content="#9f7a12" />
   <style>
     :root{
@@ -16,7 +16,6 @@
       --line:#ead9aa;
       --soft:#fbf7ee;
       --shadow:0 18px 50px rgba(80,58,9,.10);
-      --radius:28px;
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
@@ -24,47 +23,43 @@
       font-family: "Segoe UI", Tahoma, Arial, sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at top left, #fffaf0 0, rgba(255,250,240,.8) 18%, transparent 36%),
+        radial-gradient(circle at top left, #fffaf0 0, rgba(255,250,240,.85) 18%, transparent 36%),
         radial-gradient(circle at bottom right, #f0e4c6 0, rgba(240,228,198,.45) 18%, transparent 34%),
         linear-gradient(180deg,#f8f5ef 0%, #f4efe5 100%);
       min-height:100vh;
     }
     .wrap{
-      width:min(100%, 1120px);
-      margin:0 auto;
-      padding:20px;
-    }
-    .screen{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .hero{
-      display:grid;
-      grid-template-columns: 1.08fr .92fr;
-      gap:0;
       width:min(100%, 1040px);
+      margin:0 auto;
+      padding:22px;
+    }
+    .card{
       background:var(--card);
       border:1px solid #efe4ca;
-      border-radius:36px;
+      border-radius:34px;
       overflow:hidden;
       box-shadow:var(--shadow);
     }
-    .hero-left{
-      padding:42px 42px 34px;
+    .hero{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      min-height:100vh;
+    }
+    .left{
+      padding:42px 40px 34px;
       background:linear-gradient(180deg, #fffdfa 0%, #fff9ee 100%);
       position:relative;
     }
-    .hero-left:before{
+    .left:before{
       content:"";
       position:absolute;
-      inset:auto auto -80px -60px;
-      width:220px;height:220px;border-radius:50%;
-      background:radial-gradient(circle, rgba(226,198,122,.30), transparent 65%);
+      left:-60px; bottom:-90px;
+      width:240px; height:240px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(226,198,122,.28), transparent 66%);
       pointer-events:none;
     }
-    .label{
+    .badge{
       display:inline-flex;
       align-items:center;
       gap:10px;
@@ -78,73 +73,99 @@
       text-transform:uppercase;
       font-weight:700;
     }
-    .arabesque{
+    .orn{
       color:var(--gold);
-      font-size:32px;
+      font-size:30px;
       line-height:1;
       margin-bottom:12px;
     }
     h1{
       margin:18px 0 10px;
-      font-size:clamp(34px, 4.3vw, 58px);
+      font-size:clamp(34px, 4.5vw, 58px);
       line-height:1.08;
       letter-spacing:-.03em;
       font-family: Georgia, "Times New Roman", serif;
     }
     .sub{
-      font-size:19px;
-      line-height:1.8;
-      color:var(--muted);
-      margin:0 0 10px;
-      max-width:580px;
-    }
-    .invited{
-      margin:24px 0 0;
       font-size:18px;
+      line-height:1.9;
+      color:var(--muted);
+      margin:0;
+      max-width:560px;
+    }
+    .section{
+      margin-top:28px;
+      padding:22px 22px;
+      border:1px solid #f0e4c6;
+      border-radius:24px;
+      background:#fffdfa;
+    }
+    .title-small{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      color:var(--muted);
+      font-weight:700;
+      margin-bottom:14px;
+    }
+    .detail{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      margin:16px 0;
+    }
+    .icon{
+      width:42px;height:42px;border-radius:14px;
+      background:#fff;border:1px solid var(--line);
+      display:flex;align-items:center;justify-content:center;font-size:20px;flex:none;
+    }
+    .detail h3{
+      margin:0 0 4px;
+      font-size:16px;
+    }
+    .detail p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.8;
+    }
+    .map-btn{
+      margin-top:14px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 18px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--gold-dark);
+      text-decoration:none;
+      font-weight:700;
+    }
+    .closing{
+      margin-top:24px;
+      color:var(--muted);
+      line-height:1.95;
+      font-size:16px;
+    }
+    .closing strong{
       color:var(--text);
     }
-    .guest{
-      margin-top:10px;
-      display:inline-block;
-      padding:12px 18px;
-      border-radius:16px;
-      background:var(--soft);
-      border:1px solid var(--line);
-      font-weight:600;
-      min-width:240px;
-    }
-    .cta-row{
-      display:flex;
-      flex-wrap:wrap;
-      align-items:center;
-      gap:14px;
-      margin-top:28px;
-    }
-    .btn{
-      appearance:none;border:0;cursor:pointer;
-      display:inline-flex;align-items:center;justify-content:center;
-      min-height:54px;padding:0 28px;border-radius:999px;
-      background:linear-gradient(180deg, #bb8a00 0%, #9f7700 100%);
-      color:#fff;font-weight:700;font-size:17px;
-      box-shadow:0 10px 24px rgba(170,123,0,.25);
-      transition:.2s ease;
-      text-decoration:none;
-    }
-    .btn:hover{transform:translateY(-1px); background:linear-gradient(180deg, #c19000 0%, #946d00 100%)}
-    .btn.secondary{
-      background:#fff;color:var(--gold-dark);border:1px solid var(--line);box-shadow:none;
-    }
     .hosts{
-      margin-top:28px;
-      padding-top:22px;
+      margin-top:26px;
+      padding-top:20px;
       border-top:1px dashed var(--line);
       color:var(--muted);
       font-size:15px;
     }
-    .hosts strong{display:block;color:var(--text);font-size:20px;margin-top:8px}
-    .hero-right{
+    .hosts strong{
+      display:block;
+      color:var(--text);
+      font-size:22px;
+      margin-top:8px;
+      line-height:1.35;
+    }
+    .right{
       position:relative;
-      min-height:620px;
       background:
         radial-gradient(circle at top, rgba(255,231,169,.22), transparent 32%),
         linear-gradient(180deg, #2d261f 0%, #47351a 60%, #6d5120 100%);
@@ -154,7 +175,11 @@
       padding:36px;
       overflow:hidden;
     }
-    .stars{position:absolute;inset:0;opacity:.35;background-image:radial-gradient(#fff 1px, transparent 1px);background-size:32px 32px}
+    .stars{
+      position:absolute;inset:0;opacity:.35;
+      background-image:radial-gradient(#fff 1px, transparent 1px);
+      background-size:32px 32px;
+    }
     .moon{
       position:absolute;top:54px;right:56px;
       width:92px;height:92px;border-radius:50%;
@@ -227,203 +252,61 @@
       max-width:320px;
       font-size:16px;
     }
-    .page{
-      display:none;
-      min-height:100vh;
-      padding:28px 16px;
-    }
-    .page.active{display:block}
-    .card{
-      width:min(100%, 940px);
-      margin:0 auto;
-      background:var(--card);
-      border:1px solid #efe4ca;
-      border-radius:32px;
-      box-shadow:var(--shadow);
-      overflow:hidden;
-    }
-    .card-head{
-      position:relative;
-      padding:38px 26px 28px;
-      text-align:center;
-      background:linear-gradient(180deg,#fffdfa 0%,#fdf7eb 100%);
-      border-bottom:1px solid #f1e6ce;
-    }
-    .mini{
-      color:var(--gold-dark);
-      font-size:13px;
-      text-transform:uppercase;
-      letter-spacing:.20em;
+    .music-btn{
+      position:absolute;
+      top:18px; right:18px;
+      border:1px solid rgba(255,240,205,.28);
+      background:rgba(255,255,255,.09);
+      color:#fff8e4;
+      border-radius:999px;
+      padding:10px 14px;
       font-weight:700;
-    }
-    .card-head h3{
-      margin:12px 0 8px;
-      font-size:clamp(30px, 4vw, 48px);
-      font-family:Georgia, "Times New Roman", serif;
-      line-height:1.1;
-    }
-    .desc{
-      margin:0 auto;
-      max-width:660px;
-      color:var(--muted);
-      line-height:1.9;
-      font-size:16px;
-    }
-    .music-toggle{
-      position:absolute;top:18px;right:18px;
-      border:1px solid var(--line);background:#fff;color:var(--gold-dark);
-      border-radius:999px;padding:10px 14px;font-weight:700;cursor:pointer;
+      cursor:pointer;
       font-size:13px;
-    }
-    .content{
-      display:grid;
-      grid-template-columns:1.15fr .85fr;
-      gap:22px;
-      padding:22px;
-    }
-    .panel{
-      border:1px solid #f0e4c6;
-      border-radius:24px;
-      padding:22px;
-      background:#fffdfa;
-    }
-    .panel.soft{background:#faf6ed}
-    .panel.dark{
-      background:linear-gradient(180deg,#2f271f 0%, #63491d 100%);
-      color:#fff8e4;border:0;
-    }
-    .panel-title{
-      font-size:12px;text-transform:uppercase;letter-spacing:.18em;
-      color:var(--muted);font-weight:700;margin-bottom:16px;
-    }
-    .dark .panel-title{color:#f0d797}
-    .detail{
-      display:flex;gap:14px;align-items:flex-start;margin:16px 0;
-    }
-    .icon{
-      width:42px;height:42px;border-radius:14px;
-      background:#fff;border:1px solid var(--line);
-      display:flex;align-items:center;justify-content:center;font-size:20px;flex:none;
-    }
-    .detail h4{margin:0 0 4px;font-size:16px}
-    .detail p{margin:0;color:var(--muted);line-height:1.8}
-    .map-btn{
-      margin-top:14px;
-      display:inline-flex;align-items:center;gap:10px;
-      padding:12px 18px;border-radius:999px;
-      border:1px solid var(--line);background:#fff;color:var(--gold-dark);
-      text-decoration:none;font-weight:700;
-    }
-    .hosts-box{
-      font-size:15px;color:#f1e5c3;line-height:1.9;
-    }
-    .hosts-box strong{display:block;font-size:28px;color:#fff;margin-top:8px;line-height:1.25}
-    .closing{
-      color:var(--muted);line-height:1.95;font-size:16px;
-    }
-    .footer-note{
-      text-align:center;padding:0 24px 28px;color:#7a6f60;font-size:14px
+      backdrop-filter: blur(8px);
     }
     @media (max-width: 860px){
-      .hero,.content{grid-template-columns:1fr}
-      .hero-right{min-height:460px}
-      .hero-left{padding:30px 22px}
-      .scene h2{font-size:36px}
-      .card-head{padding-top:68px}
-      .music-toggle{left:50%;right:auto;transform:translateX(-50%);top:14px}
+      .hero{grid-template-columns:1fr}
+      .right{min-height:420px}
     }
     @media (max-width: 520px){
       .wrap{padding:14px}
-      .hero{border-radius:26px}
+      .card{border-radius:24px}
+      .left{padding:28px 18px 24px}
       h1{font-size:36px}
-      .sub{font-size:16px;line-height:1.75}
-      .btn{width:100%}
-      .cta-row{display:grid;grid-template-columns:1fr}
-      .hero-right{padding:20px;min-height:380px}
+      .sub{font-size:16px;line-height:1.8}
+      .section{padding:18px}
+      .right{padding:20px;min-height:360px}
       .kaaba{width:136px;height:136px}
       .scene h2{font-size:31px}
-      .card,.panel{border-radius:22px}
-      .content{padding:14px}
-      .panel{padding:18px}
-      .card-head{padding:64px 18px 24px}
+      .music-btn{top:14px;right:14px}
     }
   </style>
 </head>
 <body>
-  <div id="cover" class="screen wrap">
-    <section class="hero">
-      <div class="hero-left">
-        <div class="arabesque">❁</div>
-        <div class="label">Undangan Walimatussafar</div>
-        <h1>Assalamu’alaikum<br/>Warahmatullahi Wabarakatuh</h1>
-        <p class="sub">
-          Dengan penuh rasa syukur, kami mengundang Bapak/Ibu/Saudara/Saudari
-          untuk hadir pada acara walimatussafar kami.
-        </p>
-        <div class="invited">Kepada Yth.</div>
-        <div class="guest">Saudara/Saudari</div>
+  <audio id="bgm" src="soundtrack-undangan.mp3" autoplay loop></audio>
 
-        <div class="cta-row">
-          <button class="btn" onclick="openInvitation()">Buka Undangan</button>
-        </div>
-
-        <div class="hosts">
-          Yang mengundang
-          <strong>Ridwan Nasution &amp; Leni Herlina</strong>
-        </div>
-      </div>
-
-      <div class="hero-right">
-        <div class="stars"></div>
-        <div class="moon"></div>
-        <div class="scene">
-          <div class="kaaba"></div>
-          <div class="couple" aria-hidden="true">
-            <div class="person man">
-              <div class="cap"></div>
-              <div class="head"></div>
-              <div class="body"></div>
-            </div>
-            <div class="person woman">
-              <div class="veil"></div>
-              <div class="face"></div>
-              <div class="dress"></div>
-            </div>
-          </div>
-          <h2>Walimatussafar</h2>
-          <p>
-            Semoga langkah keberangkatan dipenuhi keberkahan, kelancaran,
-            keselamatan, dan kemabruran.
-          </p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <main id="invitationPage" class="page">
-    <audio id="bgm" src="soundtrack-undangan.mp3" loop></audio>
-
+  <div class="wrap">
     <section class="card">
-      <div class="card-head">
-        <button id="musicBtn" class="music-toggle" onclick="toggleMusic()">Putar Musik</button>
-        <div class="mini">Undangan Acara</div>
-        <h3>Walimatussafar</h3>
-        <p class="desc">
-          Dengan memohon rahmat dan ridha Allah Subhanahu wa Ta’ala, kami bermaksud
-          mengundang Bapak/Ibu/Saudara/Saudari untuk berkenan hadir serta memberikan doa terbaik
-          pada acara walimatussafar kami.
-        </p>
-      </div>
+      <div class="hero">
+        <div class="left">
+          <div class="orn">❁</div>
+          <div class="badge">Undangan Walimatussafar</div>
 
-      <div class="content">
-        <div>
-          <div class="panel soft">
-            <div class="panel-title">Detail Acara</div>
+          <h1>Assalamu’alaikum<br>Warahmatullahi Wabarakatuh</h1>
+
+          <p class="sub">
+            Dengan penuh rasa syukur, kami mengundang Bapak/Ibu/Saudara/Saudari
+            untuk hadir pada acara walimatussafar kami.
+          </p>
+
+          <div class="section">
+            <div class="title-small">Detail Acara</div>
 
             <div class="detail">
               <div class="icon">🗓️</div>
               <div>
-                <h4>Hari / Tanggal</h4>
+                <h3>Hari / Tanggal</h3>
                 <p>Minggu, 19 April 2026</p>
               </div>
             </div>
@@ -431,104 +314,93 @@
             <div class="detail">
               <div class="icon">⏰</div>
               <div>
-                <h4>Waktu</h4>
-                <p>Pukul ........ WIB</p>
+                <h3>Waktu</h3>
+                <p>Pukul 09.00 WIB s.d. selesai</p>
               </div>
             </div>
 
             <div class="detail">
               <div class="icon">📍</div>
               <div>
-                <h4>Lokasi</h4>
+                <h3>Lokasi</h3>
                 <p>
-                  Jl. Raya Cibiuk No. 14,<br/>
-                  Kel. Sukaratu, Kec. Majasari,<br/>
+                  Jl. Raya Cibiuk No. 14,<br>
+                  Kel. Sukaratu, Kec. Majasari,<br>
                   Pandeglang
                 </p>
-                <a class="map-btn" href="https://maps.app.goo.gl/uVV5E3GyA2LnyzDg9" target="_blank" rel="noreferrer">
+                <a class="map-btn" href="https://maps.app.goo.gl/yuYn1nT4DyR4StzN7" target="_blank" rel="noreferrer">
                   🗺️ Buka di Maps
                 </a>
               </div>
             </div>
           </div>
 
-          <div class="panel" style="margin-top:18px;">
-            <div class="panel-title">Pesan</div>
-            <div class="closing">
-              Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
-              Bapak/Ibu/Saudara/Saudari berkenan hadir untuk mempererat silaturahmi
-              serta mengiringi acara ini dengan doa yang tulus.
-              <br/><br/>
-              Atas kehadiran dan doa restunya, kami sampaikan terima kasih.
-              <br/><br/>
-              <strong>Wassalamu’alaikum Warahmatullahi Wabarakatuh</strong>
-            </div>
+          <div class="closing">
+            Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
+            Bapak/Ibu/Saudara/Saudari berkenan hadir untuk mempererat silaturahmi
+            serta mengiringi acara ini dengan doa yang tulus.
+            <br><br>
+            Atas kehadiran dan doa restunya, kami sampaikan terima kasih.
+            <br><br>
+            <strong>Wassalamu’alaikum Warahmatullahi Wabarakatuh</strong>
+          </div>
+
+          <div class="hosts">
+            Yang mengundang
+            <strong>Ridwan &amp; Leni Herlina</strong>
           </div>
         </div>
 
-        <div>
-          <div class="panel dark">
-            <div class="panel-title">Yang Mengundang</div>
-            <div class="hosts-box">
-              Dengan hormat,
-              <strong>Ridwan<br/>&amp; Leni Herlina</strong>
-            </div>
-          </div>
+        <div class="right">
+          <button id="musicBtn" class="music-btn" onclick="toggleMusic()">Pause Musik</button>
+          <div class="stars"></div>
+          <div class="moon"></div>
 
-          <div class="panel" style="margin-top:18px;">
-            <div class="panel-title">Catatan</div>
-            <div class="closing">
-              Mohon doa restu agar seluruh rangkaian ibadah diberi kelancaran,
-              kesehatan, keselamatan, serta kembali dengan predikat haji yang mabrur.
+          <div class="scene">
+            <div class="kaaba"></div>
+            <div class="couple" aria-hidden="true">
+              <div class="person man">
+                <div class="cap"></div>
+                <div class="head"></div>
+                <div class="body"></div>
+              </div>
+              <div class="person woman">
+                <div class="veil"></div>
+                <div class="face"></div>
+                <div class="dress"></div>
+              </div>
             </div>
+            <h2>Walimatussafar</h2>
+            <p>
+              Semoga langkah keberangkatan dipenuhi keberkahan, kelancaran,
+              keselamatan, dan kemabruran.
+            </p>
           </div>
         </div>
-      </div>
-
-      <div class="footer-note">
-        Walimatussafar • 19 April 2026
       </div>
     </section>
-  </main>
+  </div>
 
   <script>
-    let musicStarted = false;
+    const audio = document.getElementById('bgm');
+    const btn = document.getElementById('musicBtn');
 
-    function openInvitation() {
-      document.getElementById('cover').style.display = 'none';
-      const page = document.getElementById('invitationPage');
-      page.classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'instant' });
-
-      const audio = document.getElementById('bgm');
-      audio.play().then(() => {
-        musicStarted = true;
-        updateMusicButton();
-      }).catch(() => {
-        updateMusicButton();
-      });
+    function updateMusicButton() {
+      btn.textContent = audio.paused ? 'Putar Musik' : 'Pause Musik';
     }
 
     function toggleMusic() {
-      const audio = document.getElementById('bgm');
       if (audio.paused) {
-        audio.play().then(() => {
-          musicStarted = true;
-          updateMusicButton();
-        }).catch(() => {
-          updateMusicButton();
-        });
+        audio.play().then(updateMusicButton).catch(updateMusicButton);
       } else {
         audio.pause();
         updateMusicButton();
       }
     }
 
-    function updateMusicButton() {
-      const btn = document.getElementById('musicBtn');
-      const audio = document.getElementById('bgm');
-      btn.textContent = audio.paused ? 'Putar Musik' : 'Pause Musik';
-    }
+    window.addEventListener('load', () => {
+      audio.play().then(updateMusicButton).catch(updateMusicButton);
+    });
   </script>
 </body>
 </html>

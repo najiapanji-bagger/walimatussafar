@@ -3,24 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Walimatussafar Ridwan & Leni Herlina</title>
+  <title>Walimatussafar Ridwan Nasution & Leni Herlina</title>
   <meta name="theme-color" content="#9f7a12" />
   <style>
     :root{
-      --bg:#f7f3ea;
-      --card:#ffffff;
       --text:#2f2a23;
       --muted:#6c6357;
       --gold:#aa7b00;
       --gold-dark:#8d6500;
       --line:#ead9aa;
-      --soft:#fbf7ee;
       --shadow:0 18px 50px rgba(80,58,9,.10);
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
     body{
-      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      font-family:"Segoe UI",Tahoma,Arial,sans-serif;
       color:var(--text);
       background:
         radial-gradient(circle at top left, #fffaf0 0, rgba(255,250,240,.85) 18%, transparent 36%),
@@ -34,7 +31,7 @@
       padding:22px;
     }
     .card{
-      background:var(--card);
+      background:#fff;
       border:1px solid #efe4ca;
       border-radius:34px;
       overflow:hidden;
@@ -84,7 +81,7 @@
       font-size:clamp(34px, 4.5vw, 58px);
       line-height:1.08;
       letter-spacing:-.03em;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family:Georgia,"Times New Roman",serif;
     }
     .sub{
       font-size:18px;
@@ -95,7 +92,7 @@
     }
     .section{
       margin-top:28px;
-      padding:22px 22px;
+      padding:22px;
       border:1px solid #f0e4c6;
       border-radius:24px;
       background:#fffdfa;
@@ -147,9 +144,7 @@
       line-height:1.95;
       font-size:16px;
     }
-    .closing strong{
-      color:var(--text);
-    }
+    .closing strong{color:var(--text)}
     .hosts{
       margin-top:26px;
       padding-top:20px;
@@ -240,7 +235,7 @@
     }
     .scene h2{
       margin:6px 0 8px;
-      font-family:Georgia, "Times New Roman", serif;
+      font-family:Georgia,"Times New Roman",serif;
       font-size:44px;
       line-height:1.12;
       color:#fff5d8;
@@ -265,11 +260,11 @@
       font-size:13px;
       backdrop-filter: blur(8px);
     }
-    @media (max-width: 860px){
+    @media (max-width:860px){
       .hero{grid-template-columns:1fr}
       .right{min-height:420px}
     }
-    @media (max-width: 520px){
+    @media (max-width:520px){
       .wrap{padding:14px}
       .card{border-radius:24px}
       .left{padding:28px 18px 24px}
@@ -284,7 +279,7 @@
   </style>
 </head>
 <body>
-  <audio id="bgm" src="soundtrack-undangan.mp3" autoplay loop></audio>
+  <audio id="bgm" src="soundtrack-undangan.mp3" loop></audio>
 
   <div class="wrap">
     <section class="card">
@@ -347,12 +342,12 @@
 
           <div class="hosts">
             Yang mengundang
-            <strong>Ridwan &amp; Leni Herlina</strong>
+            <strong>Ridwan Nasution &amp; Leni Herlina</strong>
           </div>
         </div>
 
         <div class="right">
-          <button id="musicBtn" class="music-btn" onclick="toggleMusic()">Pause Musik</button>
+          <button id="musicBtn" class="music-btn" onclick="toggleMusic()">Putar Musik</button>
           <div class="stars"></div>
           <div class="moon"></div>
 
@@ -384,9 +379,22 @@
   <script>
     const audio = document.getElementById('bgm');
     const btn = document.getElementById('musicBtn');
+    let hasTriedAutoPlay = false;
 
     function updateMusicButton() {
       btn.textContent = audio.paused ? 'Putar Musik' : 'Pause Musik';
+    }
+
+    function tryPlayMusic() {
+      if (hasTriedAutoPlay && !audio.paused) return;
+      audio.play().then(() => {
+        updateMusicButton();
+        document.removeEventListener('click', tryPlayMusic);
+        document.removeEventListener('touchstart', tryPlayMusic);
+      }).catch(() => {
+        updateMusicButton();
+      });
+      hasTriedAutoPlay = true;
     }
 
     function toggleMusic() {
@@ -399,8 +407,12 @@
     }
 
     window.addEventListener('load', () => {
-      audio.play().then(updateMusicButton).catch(updateMusicButton);
+      tryPlayMusic();
+      updateMusicButton();
     });
+
+    document.addEventListener('click', tryPlayMusic, { once: true });
+    document.addEventListener('touchstart', tryPlayMusic, { once: true });
   </script>
 </body>
 </html>

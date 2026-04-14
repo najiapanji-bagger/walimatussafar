@@ -61,22 +61,20 @@
     .kaaba{width:170px;height:170px;margin:0 auto 18px;border-radius:12px;background:linear-gradient(180deg,#0d0d0f,#1c1c1f);position:relative;box-shadow:0 20px 40px rgba(0,0,0,.35)}
     .kaaba:before{content:"";position:absolute;left:0;right:0;top:34px;height:12px;background:linear-gradient(90deg,#9b7400,#eccf6e,#9b7400)}
     .kaaba:after{content:"";position:absolute;right:-22px;top:24px;bottom:24px;width:22px;background:linear-gradient(180deg,#2d2d31,#111114);border-radius:0 10px 10px 0}
-    .couple{margin:10px auto 18px;width:180px;height:72px;position:relative}
-    .person{position:absolute;bottom:0;width:58px;height:72px}
-    .person .head{width:18px;height:18px;border-radius:50%;background:#f0c89e;position:absolute;left:20px;top:0}
-    .person.man{left:22px}
-    .person.man .body{position:absolute;left:12px;top:16px;width:34px;height:50px;border-radius:18px 18px 10px 10px;background:#f5f1e6;border:1px solid rgba(255,255,255,.15)}
-    .person.man .cap{position:absolute;left:17px;top:-3px;width:24px;height:9px;border-radius:8px 8px 3px 3px;background:#f6f4ef}
-    .person.woman{right:22px}
-    .person.woman .veil{position:absolute;left:8px;top:10px;width:42px;height:54px;border-radius:24px 24px 10px 10px;background:#e8dcc0}
-    .person.woman .face{position:absolute;left:20px;top:6px;width:18px;height:18px;border-radius:50%;background:#f0c89e}
-    .person.woman .dress{position:absolute;left:14px;top:28px;width:30px;height:38px;border-radius:18px 18px 10px 10px;background:#f5f1e6}
+    .couple{margin:10px auto 18px;font-size:54px;line-height:1}
     .scene h2{margin:6px 0 8px;font-family:Georgia,"Times New Roman",serif;font-size:44px;line-height:1.12;color:#fff5d8}
     .scene p{margin:0 auto;color:#f0e4c6;line-height:1.8;max-width:320px;font-size:16px}
+    @media (max-width:860px){.hero{grid-template-columns:1fr}.right{min-height:420px}}
+    @media (max-width:520px){
+      .wrap{padding:14px}.card{border-radius:24px}.left{padding:28px 18px 24px}
+      h1{font-size:36px}.sub{font-size:16px;line-height:1.8}.section,.guest-block{padding:18px}
+      .guest-name{font-size:24px}.right{padding:20px;min-height:360px}
+      .kaaba{width:136px;height:136px}.scene h2{font-size:31px}.couple{font-size:42px}
+    }
   </style>
 </head>
 <body>
-  <audio src="soundtrack-undangan.mp3" autoplay loop playsinline preload="auto"></audio>
+  <audio id="bgm" src="soundtrack-undangan.mp3" autoplay loop playsinline preload="auto"></audio>
 
   <div class="wrap">
     <section class="card">
@@ -152,18 +150,7 @@
 
           <div class="scene">
             <div class="kaaba"></div>
-            <div class="couple" aria-hidden="true">
-              <div class="person man">
-                <div class="cap"></div>
-                <div class="head"></div>
-                <div class="body"></div>
-              </div>
-              <div class="person woman">
-                <div class="veil"></div>
-                <div class="face"></div>
-                <div class="dress"></div>
-              </div>
-            </div>
+            <div class="couple">🧕🏻 🧔🏻‍♂️</div>
             <h2>Walimatussafar</h2>
             <p>
               Semoga langkah keberangkatan dipenuhi keberkahan, kelancaran,
@@ -182,6 +169,34 @@
     if (guest && guest.trim()) {
       guestEl.textContent = guest.trim();
     }
+
+    const audio = document.getElementById('bgm');
+
+    function forcePlay() {
+      const p = audio.play();
+      if (p && typeof p.catch === 'function') {
+        p.catch(() => {});
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      forcePlay();
+      [200, 700, 1400, 2400].forEach((t) => {
+        setTimeout(() => {
+          if (audio.paused) forcePlay();
+        }, t);
+      });
+    });
+
+    window.addEventListener('load', () => {
+      forcePlay();
+    });
+
+    ['click', 'touchstart', 'pointerdown'].forEach((evt) => {
+      window.addEventListener(evt, () => {
+        if (audio.paused) forcePlay();
+      }, { once: true, passive: true });
+    });
   </script>
 </body>
 </html>

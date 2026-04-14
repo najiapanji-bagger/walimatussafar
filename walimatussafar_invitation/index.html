@@ -73,22 +73,10 @@
     .person.woman .dress{position:absolute;left:14px;top:28px;width:30px;height:38px;border-radius:18px 18px 10px 10px;background:#f5f1e6}
     .scene h2{margin:6px 0 8px;font-family:Georgia,"Times New Roman",serif;font-size:44px;line-height:1.12;color:#fff5d8}
     .scene p{margin:0 auto;color:#f0e4c6;line-height:1.8;max-width:320px;font-size:16px}
-    .music-btn{
-      position:absolute;top:18px;right:18px;border:1px solid rgba(255,240,205,.28);
-      background:rgba(255,255,255,.09);color:#fff8e4;border-radius:999px;padding:10px 14px;
-      font-weight:700;cursor:pointer;font-size:13px;backdrop-filter:blur(8px)
-    }
-    @media (max-width:860px){.hero{grid-template-columns:1fr}.right{min-height:420px}}
-    @media (max-width:520px){
-      .wrap{padding:14px}.card{border-radius:24px}.left{padding:28px 18px 24px}
-      h1{font-size:36px}.sub{font-size:16px;line-height:1.8}.section,.guest-block{padding:18px}
-      .guest-name{font-size:24px}
-      .right{padding:20px;min-height:360px}.kaaba{width:136px;height:136px}.scene h2{font-size:31px}.music-btn{top:14px;right:14px}
-    }
   </style>
 </head>
 <body>
-  <audio id="bgm" src="soundtrack-undangan.mp3" autoplay loop playsinline preload="auto"></audio>
+  <audio src="soundtrack-undangan.mp3" autoplay loop playsinline preload="auto"></audio>
 
   <div class="wrap">
     <section class="card">
@@ -96,9 +84,7 @@
         <div class="left">
           <div class="orn">❁</div>
           <div class="badge">Undangan Walimatussafar</div>
-
           <h1>Assalamu’alaikum<br>Warahmatullahi Wabarakatuh</h1>
-
           <p class="sub">
             Dengan penuh rasa syukur, kami mengundang Bapak/Ibu/Saudara/Saudari
             untuk hadir pada acara walimatussafar kami.
@@ -161,7 +147,6 @@
         </div>
 
         <div class="right">
-          <button id="musicBtn" class="music-btn" onclick="toggleMusic()">Pause Musik</button>
           <div class="stars"></div>
           <div class="moon"></div>
 
@@ -191,56 +176,12 @@
   </div>
 
   <script>
-    const audio = document.getElementById('bgm');
-    const btn = document.getElementById('musicBtn');
     const guestEl = document.getElementById('guestName');
-
-    function updateGuestName() {
-      const params = new URLSearchParams(window.location.search);
-      const guest = params.get('to');
-      if (guest && guest.trim()) {
-        guestEl.textContent = guest.trim();
-      }
+    const params = new URLSearchParams(window.location.search);
+    const guest = params.get('to');
+    if (guest && guest.trim()) {
+      guestEl.textContent = guest.trim();
     }
-
-    function updateMusicButton() {
-      btn.textContent = audio.paused ? 'Putar Musik' : 'Pause Musik';
-    }
-
-    function aggressiveAutoplay() {
-      const promise = audio.play();
-      if (promise && typeof promise.then === 'function') {
-        promise.then(updateMusicButton).catch(updateMusicButton);
-      } else {
-        updateMusicButton();
-      }
-    }
-
-    function toggleMusic() {
-      if (audio.paused) {
-        aggressiveAutoplay();
-      } else {
-        audio.pause();
-        updateMusicButton();
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      updateGuestName();
-      aggressiveAutoplay();
-      [250, 700, 1400, 2200].forEach((t) => {
-        setTimeout(() => {
-          if (audio.paused) aggressiveAutoplay();
-        }, t);
-      });
-      updateMusicButton();
-    });
-
-    ['click','touchstart','pointerdown'].forEach((evt) => {
-      window.addEventListener(evt, () => {
-        if (audio.paused) aggressiveAutoplay();
-      }, { once: true, passive: true });
-    });
   </script>
 </body>
 </html>
